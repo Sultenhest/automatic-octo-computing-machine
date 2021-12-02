@@ -1,7 +1,7 @@
 <template>
-  <Tutorial/>
+  <div class="home">
+    <UIHeader />
+    
+    <GridMasonry />
+  </div>
 </template>
-
-<script>
-export default {}
-</script>

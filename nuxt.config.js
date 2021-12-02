@@ -1,7 +1,9 @@
+require('dotenv').config()
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'trine',
+    title: 'Trine Dreisig',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -10,7 +12,10 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    ],
+    bodyAttrs: {
+      class: 'bg-gray-50 dark:bg-gray-800'
+    }
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -19,6 +24,10 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    { src: '~/plugins/vue-masonry-css' },
+    { src: '~/plugins/contentful' },
+    { src: '~/plugins/frontpage' },
+    { src: '~/plugins/terms' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -26,10 +35,14 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    // Doc: https://github.com/nuxt-community/color-mode-module
+    "@nuxtjs/color-mode",
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+
+    '@nuxtjs/dotenv',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -46,6 +59,18 @@ export default {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
+  build: {},
+
+  colorMode: {
+    classSuffix: ''
+  },
+
+  router: {
+    linkExactActiveClass: 'bg-gray-200 dark:bg-gray-700 cursor-default'
+  },
+
+  env: {
+    NUXT_ENV_CONTENTFUL_SPACE: process.env.NUXT_ENV_CONTENTFUL_SPACE,
+    NUXT_ENV_CONTENTFUL_ACCESS_TOKEN: process.env.NUXT_ENV_CONTENTFUL_ACCESS_TOKEN
   }
 }
