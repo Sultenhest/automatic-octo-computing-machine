@@ -12,6 +12,10 @@ module.exports = {
      minHeight: {
        'half': '50vh'
      },
+     backgroundColor: theme => ({
+      ...theme('colors'),
+      'dark': '#111111',
+    }),
     extend: {
       keyframes: {
         fadeinright: {
