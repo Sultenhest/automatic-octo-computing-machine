@@ -14,12 +14,13 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ],
     bodyAttrs: {
-      class: 'bg-gray-50 dark:bg-gray-800'
+      class: 'bg-gray-50 dark:bg-dark'
     }
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '~/static/style.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -66,11 +67,16 @@ export default {
   },
 
   router: {
-    linkExactActiveClass: 'bg-gray-200 dark:bg-gray-700 cursor-default'
+    // linkExactActiveClass: 'bg-gray-200 dark:bg-gray-900 cursor-default'
   },
 
   env: {
     NUXT_ENV_CONTENTFUL_SPACE: process.env.NUXT_ENV_CONTENTFUL_SPACE,
     NUXT_ENV_CONTENTFUL_ACCESS_TOKEN: process.env.NUXT_ENV_CONTENTFUL_ACCESS_TOKEN
+  },
+
+  pageTransition: {
+    name: 'page',
+    mode: 'out-in'
   }
 }
