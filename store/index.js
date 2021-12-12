@@ -2,15 +2,15 @@ import contentful from '~/plugins/contentful.js'
 
 export const state = () => ({
   images: null,
-  terms: null
+  sections: null
 });
 
 export const mutations = {
   setImages: (state, images) => {
     state.images = images;
   },
-  setTerms: (state, terms) => {
-    state.terms = terms;
+  setSections: (state, sections) => {
+    state.sections = sections;
   }
 };
 
@@ -25,11 +25,11 @@ export const actions = {
     }
   },
 
-  async getTermsPage({ commit }) {
+  async getAboutPage({ commit }) {
     try {
       if (!contentful) return;
       const response = await contentful.getEntry('2f0zj0mrh9p5aTkGUtpJje');
-      commit("setTerms", response.fields);
+      commit("setSections", response.fields);
     } catch (err) {
       console.error(err);
     }
