@@ -6,3 +6,12 @@
 .page-leave-to {
   opacity: 0;
 }
+
+@font-face {
+  font-family: 'Tulpen One';
+  src: URL('TulpenOne-Regular.ttf') format('truetype');
+}
+
+.tuplen {
+  font-family: 'Tulpen One', sans-serif;
+}

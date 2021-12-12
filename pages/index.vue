@@ -1,5 +1,5 @@
 <template>
-  <div class="home pt-0 md:pt-16">
+  <div class="home pt-2 md:pt-20">
     <GridMasonry />
   </div>
 </template>
