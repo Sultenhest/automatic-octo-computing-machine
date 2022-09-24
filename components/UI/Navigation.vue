@@ -3,9 +3,9 @@
     <div class="max-w-screen-lg mx-auto">
       <header class="relative flex items-center text-base text-gray-800 dark:text-gray-300">
         <NuxtLink to="/" class="flex items-center mr-auto">
-          <img src="/logo_blue.png" alt="Logo" class="h-10 w-auto mr-3" />
+          <img src="/logo_blue.png" alt="Logo" class="h-6 sm:h-8 md:h-10 w-auto mr-3" />
 
-          <span class="text-5xl tuplen lowercase tracking-wide">Trine Dreisig</span>
+          <span class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl tuplen lowercase tracking-wide">Trine Dreisig</span>
         </NuxtLink>
 
         <button class="block top-0 right-0 p-4 -mr-4 rounded" @click="show = !show">
