@@ -1,7 +1,7 @@
 <template>
   <div class="terms block sm:flex pt-2 md:pt-20">
     <div class="hidden sm:block sm:w-1/2 sm:mr-4">
-    	<GridItem v-for="image in images" :key="image.fields.slug" :item="image.fields"/>
+    	<GridItem v-for="image in randomImages" :key="image.fields.slug" :item="image.fields"/>
     </div>
 
     <div class="sm:w-1/2">
@@ -17,8 +17,13 @@ export default {
   computed: {
     ...mapGetters({
       sections: 'sections/sections',
-      images: 'randomImages'
-    })
+      images: 'images'
+    }),
+
+    randomImages() {
+    	const rand = [...this.images];
+    	return rand.sort(() => .5 - Math.random()).slice(0, 2);
+    }
   },
 
   created() {

@@ -23,9 +23,7 @@ export const actions = {
 };
 
 export const getters = {
-  randomImages(state) {
-    const shuffle = [...state.images];
-
-    return shuffle.sort(() => .5 - Math.random()).slice(0, 2);
+  images(state) {
+    return state.images
   }
 };

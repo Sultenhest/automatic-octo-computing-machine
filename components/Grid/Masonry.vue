@@ -7,11 +7,13 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   computed: {
-    images() {
-      return this.$store.state.images;
-    }
+    ...mapGetters({
+      images: 'images'
+    })
   }
 }
 </script>
