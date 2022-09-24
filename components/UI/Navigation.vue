@@ -2,24 +2,13 @@
   <div class="fixed w-full top-0 left-0 p-4 bg-gray-50 dark:bg-dark">
     <div class="max-w-screen-lg mx-auto">
       <header class="relative flex items-center text-base text-gray-800 dark:text-gray-300">
-        <NuxtLink to="/" class="text-5xl mr-auto tuplen lowercase tracking-wide">Trine Dreisig</NuxtLink>
-        
-        <nav class="hidden md:flex space-x-1">
-          <NuxtLink
-            v-for="link in links" :key="link.name"
-            :to="link.href"
-            class="p-3 hover:bg-gray-200 dark:hover:bg-black rounded transition duration-300 ease-in-out">
-          	{{ link.name }}
-          </NuxtLink>
-          <a
-            href="https://www.instagram.com/trine.dreisig/"
-            target="_blank"
-            class="flex items-center p-3 hover:bg-gray-200 dark:hover:bg-black rounded transition duration-300 ease-in-out">
-            <img src="/instagram.png" class="h-5 w-5" />
-          </a>
-        </nav>
+        <NuxtLink to="/" class="flex items-center mr-auto">
+          <img src="/logo_blue.png" alt="Logo" class="h-10 w-auto mr-3" />
 
-        <button class="block md:hidden top-0 right-0 p-4 -mr-4 rounded" @click="show = !show">
+          <span class="text-5xl tuplen lowercase tracking-wide">Trine Dreisig</span>
+        </NuxtLink>
+
+        <button class="block top-0 right-0 p-4 -mr-4 rounded" @click="show = !show">
           <IconsClose v-if="show" class="h-6 w-6 text-gray-900 dark:text-gray-200" />
           <IconsMenu v-else class="h-6 w-6 text-gray-900 dark:text-gray-200"  />
         </button>
@@ -32,7 +21,7 @@
           leave-class="opacity-100"
           leave-to-class="opacity-0"
         >
-          <div v-show="show" class="absolute top-14 right-0 w-full mt-4 p-4 rounded bg-gray-100 dark:bg-dark text-gray-800 dark:text-gray-300 shadow-md" @click="show = !show">
+          <div v-show="show" class="absolute top-14 right-0 w-full sm:max-w-sm mt-4 p-4 rounded bg-gray-100 dark:bg-dark text-gray-800 dark:text-gray-300 shadow-md" @click="show = !show">
             <NuxtLink
               v-for="link in links" :key="link.name"
               :to="link.href"
@@ -40,7 +29,7 @@
               {{ link.name }}
             </NuxtLink>
             <a
-              href="https://www.instagram.com/trine.dreisig/"
+              href="https://www.instagram.com/hundefotografi/"
               target="_blank"
               class="mb-2 p-3 block w-full hover:bg-gray-200 dark:hover:bg-black rounded transition duration-300 ease-in-out">
               Instagram
@@ -64,6 +53,14 @@ export default {
         {
           name: 'Om',
           href: '/about'
+        },
+        {
+          name: 'Priser',
+          href: '/pricing'
+        },
+        {
+          name: 'Betingelser',
+          href: '/terms'
         }
       ],
       show: false
