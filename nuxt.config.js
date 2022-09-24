@@ -28,7 +28,6 @@ export default {
     { src: '~/plugins/vue-masonry-css' },
     { src: '~/plugins/contentful' },
     { src: '~/plugins/frontpage' },
-    { src: '~/plugins/about' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
