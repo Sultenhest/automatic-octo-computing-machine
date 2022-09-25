@@ -1,5 +1,5 @@
 <template>
-	<footer class="text-base text-gray-800 dark:text-gray-300 mt-8">
+	<footer class="max-w-screen-lg mx-auto text-base text-gray-800 dark:text-gray-300 mt-8">
 		<nav class="block sm:flex justify-between">
 			<div class="flex justify-center space-x-2">
 				<div
