@@ -15,3 +15,8 @@
 .tuplen {
   font-family: 'Tulpen One', sans-serif;
 }
+
+ul {
+  list-style: initial;
+  padding: revert;
+}

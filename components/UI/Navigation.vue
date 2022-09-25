@@ -3,9 +3,11 @@
     <div class="max-w-screen-lg mx-auto">
       <header class="relative flex items-center text-base text-gray-800 dark:text-gray-300">
         <NuxtLink to="/" class="flex items-center mr-auto">
-          <img src="/logo_blue.png" alt="Logo" class="h-6 sm:h-8 md:h-10 w-auto mr-3" />
+          <img src="/logo_blue.png" alt="Logo" class="h-8 md:h-10 w-auto" />
 
-          <span class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl tuplen lowercase tracking-wide">Trine Dreisig</span>
+          <span class="hidden sm:block text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight ml-3">
+            Hundefotografi
+          </span>
         </NuxtLink>
 
         <button class="block top-0 right-0 p-4 -mr-4 rounded" @click="show = !show">
@@ -28,12 +30,6 @@
               class="mb-2 p-3 block w-full hover:bg-gray-200 dark:hover:bg-black rounded transition duration-300 ease-in-out">
               {{ link.name }}
             </NuxtLink>
-            <a
-              href="https://www.instagram.com/hundefotografi/"
-              target="_blank"
-              class="mb-2 p-3 block w-full hover:bg-gray-200 dark:hover:bg-black rounded transition duration-300 ease-in-out">
-              Instagram
-            </a>
           </div>
         </transition>
     	</header>
@@ -51,7 +47,7 @@ export default {
           href: '/'
         },
         {
-          name: 'Om',
+          name: 'Info',
           href: '/about'
         },
         {

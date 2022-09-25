@@ -4,7 +4,7 @@
       <figure class="mb-4 md:mb-0">
         <img src="/veto_me.jpg" alt="Trine Dreisig og Veto" class="mb-3" />
         <figcaption class="text-base text-gray-800 dark:text-gray-300">
-          <a href="mailto:tdreisig@gmail.com?subject=Hej Trine" class="flex p-3 hover:bg-gray-200 dark:hover:bg-black rounded transition duration-300 ease-in-out">
+          <a href="mailto:trine@hundefotografi.dk?subject=Hej Trine" class="flex p-3 hover:bg-gray-200 dark:hover:bg-black rounded transition duration-300 ease-in-out">
             <IconsMail class="h-6 w-6 mr-2" />
             <span>E-mail</span>
           </a>
