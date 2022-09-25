@@ -5,7 +5,7 @@
         <NuxtLink to="/" class="flex items-center mr-auto">
           <img src="/logo_blue.png" alt="Logo" class="h-8 md:h-10 w-auto" />
 
-          <span class="hidden sm:block text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight ml-3">
+          <span class="hidden sm:block text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-wide ml-3">
             Hundefotografi
           </span>
         </NuxtLink>
