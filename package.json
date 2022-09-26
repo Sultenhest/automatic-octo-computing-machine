@@ -1,6 +1,6 @@
 {
-  "name": "trine",
-  "version": "1.4.3",
+  "name": "Hundefotografi",
+  "version": "1.4.4",
   "private": true,
   "scripts": {
     "dev": "nuxt",
