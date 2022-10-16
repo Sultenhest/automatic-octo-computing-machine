@@ -1,7 +1,7 @@
 <template>
   <div class="terms block sm:flex pt-2 md:pt-20">
     <div class="hidden sm:block sm:w-1/2 sm:mr-4">
-    	<GridItem v-for="image in randomImages" :key="image.fields.slug" :item="image.fields"/>
+    	<GridItem v-for="image in randomImages" :key="image.fields.slug" :item="image"/>
     </div>
 
     <div class="sm:w-1/2">
