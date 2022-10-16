@@ -43,6 +43,8 @@ export default {
     '@nuxtjs/tailwindcss',
 
     '@nuxtjs/dotenv',
+
+    '@nuxt/image',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -77,5 +79,18 @@ export default {
   pageTransition: {
     name: 'page',
     mode: 'out-in'
+  },
+
+  image: {
+    screens: {
+      sm: 640,
+      md: 768,
+      lg: 1024,
+      xl: 1280,
+      xxl: 1536
+    },
+    contentful: {
+      baseURL: 'https://images.ctfassets.net/'
+    }
   }
 }
