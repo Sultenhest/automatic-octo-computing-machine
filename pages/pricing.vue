@@ -6,6 +6,11 @@
     
     <div class="sm:w-1/2">
       <UISection v-for="section in sections.section" :key="section.sys.id" :section="section" />
+
+      <NuxtLink to="/booking" class="flex p-3 hover:bg-gray-200 dark:hover:bg-black rounded transition duration-300 ease-in-out">
+        <IconsCalendar class="h-6 w-6 mr-2" />
+        <span>Book her</span>
+      </NuxtLink>
     </div>
 	</div>
 </template>
