@@ -55,6 +55,10 @@ export default {
           href: '/pricing'
         },
         {
+          name: 'Booking',
+          href: '/booking'
+        },
+        {
           name: 'Betingelser',
           href: '/terms'
         }
