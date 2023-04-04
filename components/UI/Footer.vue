@@ -48,7 +48,9 @@
 		</nav>
 
 		<p class="text-center text-sm text-gray-700 dark:text-gray-400 mt-4">
-			© {{ getYear }} Trine Dreisig
+			© {{ getYear }} Hundefotografi
+			&middot;
+			Trine Dreisig
 			&middot;
 			CVR. <a href="https://datacvr.virk.dk/enhed/virksomhed/43554506" target="_blank" alt="CVR">43554506</a>
 		</p>
