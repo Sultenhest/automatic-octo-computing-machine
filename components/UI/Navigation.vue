@@ -1,13 +1,13 @@
 <template>
-  <div class="fixed w-full top-0 left-0 p-4 bg-gray-50 dark:bg-dark">
+  <div class="z-50 fixed w-full top-0 left-0 p-4 bg-gray-50 dark:bg-dark">
     <div class="max-w-screen-lg mx-auto">
       <header class="relative flex items-center text-base text-gray-800 dark:text-gray-300">
         <NuxtLink to="/" class="flex items-center mr-auto">
           <nuxt-img format="webp" src="/logo_blue.png" alt="Logo" class="h-8 md:h-10 w-auto" />
 
-          <span class="hidden sm:block text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-wide ml-3">
+          <!-- <span class="hidden sm:block text-2xl sm:text-3xl md:text-4xl lg:text-5xl uppercase tracking-wide ml-3">
             Hundefotografi
-          </span>
+          </span> -->
         </NuxtLink>
 
         <button class="block top-0 right-0 p-4 -mr-4 rounded" @click="show = !show">
@@ -57,6 +57,10 @@ export default {
         {
           name: 'Booking',
           href: '/booking'
+        },
+        {
+          name: 'Shop',
+          href: '/shop'
         },
         {
           name: 'Betingelser',

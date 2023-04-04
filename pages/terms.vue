@@ -5,7 +5,12 @@
     </div>
 
     <div class="sm:w-1/2">
-      <UISection v-for="section in sections.section" :key="section.sys.id" :section="section" />
+      <UISection
+        v-for="section in sections.section"
+        :key="section.sys.id"
+        :title="section.fields.title"
+        :content="section.fields.content"
+      />
     </div>
 	</div>
 </template>

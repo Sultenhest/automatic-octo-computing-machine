@@ -43,6 +43,9 @@ module.exports = {
         fadeinright: 'fadeinright 1s ease-in-out',
         fadeinup: 'fadeinup 1s ease-in-out'
       },
+      colors: {
+        'dark': '#111111' 
+      }
     }
   },
   variants: {
