@@ -58,10 +58,10 @@ export default {
           name: 'Booking',
           href: '/booking'
         },
-        {
-          name: 'Shop',
-          href: '/shop'
-        },
+        // {
+        //   name: 'Shop',
+        //   href: '/shop'
+        // },
         {
           name: 'Betingelser',
           href: '/terms'
