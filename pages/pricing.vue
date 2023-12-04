@@ -24,6 +24,17 @@
 import { mapGetters } from 'vuex'
 
 export default {
+  head: {
+    title: 'Priser - Hundefotografi',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Alle billeder leveres færdigredigerede og i fuld opløsning til digital download.'
+      }
+    ],
+  },
+
   computed: {
     ...mapGetters({
       sections: 'sections/sections',

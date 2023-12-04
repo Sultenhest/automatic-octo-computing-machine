@@ -19,6 +19,17 @@
 import { mapGetters } from 'vuex'
 
 export default {
+  head: {
+    title: 'Handelsbetingelser - Hundefotografi',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Ved booking af fotografering accepteres nedenstående betingelser.'
+      }
+    ],
+  },
+
   computed: {
     ...mapGetters({
       sections: 'sections/sections',

@@ -15,6 +15,10 @@
 import { mapGetters } from 'vuex'
 
 export default {
+  head: {
+    title: 'Booking - Hundefotografi',
+  },
+
   computed: {
     ...mapGetters({
       sections: 'sections/sections'
