@@ -1,8 +1,8 @@
 <template>
 	<section class="mb-4">
-    <h2 v-if="title" class="text-xl font-bold text-gray-800 dark:text-gray-300">
+    <h1 v-if="title" class="text-xl font-bold text-gray-800 dark:text-gray-300">
       {{ title }}
-    </h2>
+    </h1>
     
     <p v-if="content" class="text-base text-gray-600 dark:text-gray-400">
       <span v-html="content"></span>

@@ -17,6 +17,24 @@ import { mapGetters } from 'vuex'
 export default {
   head: {
     title: 'Booking - Hundefotografi',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Book via email: tdreisig@gmail.com'
+      }
+    ],
+    script: [
+      {
+        json: {
+          '@context': 'http://schema.org',
+          '@type': 'Website',
+          'name': 'Booking - Hundefotografi',
+          'description': 'Book via email: tdreisig@gmail.com'
+        }, 
+        type: 'application/ld+json'
+      }
+    ]
   },
 
   computed: {

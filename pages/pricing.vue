@@ -1,10 +1,6 @@
 <template>
-  <div class="pricing block sm:flex pt-2 md:pt-20">
-    <div class="hidden sm:block sm:w-1/2 sm:mr-4">
-      <GridItem v-for="image in randomImages" :key="image.fields.slug" :item="image"/>
-    </div>
-    
-    <div class="sm:w-1/2">
+  <div class="pricing flex flex-col sm:flex-row pt-2 md:pt-20">
+    <div class="order-1 sm:w-1/2">
       <UISection
         v-for="section in sections.section"
         :key="section.sys.id"
@@ -16,6 +12,10 @@
         <IconsCalendar class="h-6 w-6 mr-2" />
         <span>Book her</span>
       </NuxtLink>
+    </div>
+
+    <div class="hidden order-0 sm:block sm:w-1/2 sm:mr-4">
+      <GridItem v-for="image in randomImages" :key="image.fields.slug" :item="image"/>
     </div>
 	</div>
 </template>
@@ -33,6 +33,17 @@ export default {
         content: 'Alle billeder leveres færdigredigerede og i fuld opløsning til digital download.'
       }
     ],
+    script: [
+      {
+        json: {
+          '@context': 'http://schema.org',
+          '@type': 'Website',
+          'name': 'Priser - Hundefotografi',
+          'description': 'Alle billeder leveres færdigredigerede og i fuld opløsning til digital download.'
+        }, 
+        type: 'application/ld+json'
+      }
+    ]
   },
 
   computed: {

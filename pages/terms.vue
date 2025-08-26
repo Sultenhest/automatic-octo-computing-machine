@@ -1,16 +1,16 @@
 <template>
-  <div class="terms block sm:flex pt-2 md:pt-20">
-    <div class="hidden sm:block sm:w-1/2 sm:mr-4">
-    	<GridItem v-for="image in randomImages" :key="image.fields.slug" :item="image"/>
-    </div>
-
-    <div class="sm:w-1/2">
+  <div class="terms flex flex-col sm:flex-row pt-2 md:pt-20">
+    <div class="order-1 sm:w-1/2">
       <UISection
         v-for="section in sections.section"
         :key="section.sys.id"
         :title="section.fields.title"
         :content="section.fields.content"
       />
+    </div>
+
+    <div class="hidden order-0 sm:block sm:w-1/2 sm:mr-4">
+    	<GridItem v-for="image in randomImages" :key="image.fields.slug" :item="image"/>
     </div>
 	</div>
 </template>
@@ -28,6 +28,17 @@ export default {
         content: 'Ved booking af fotografering accepteres nedenstående betingelser.'
       }
     ],
+    script: [
+      {
+        json: {
+          '@context': 'http://schema.org',
+          '@type': 'Website',
+          'name': 'Handelsbetingelser - Hundefotografi',
+          'description': 'Ved booking af fotografering accepteres nedenstående betingelser.'
+        }, 
+        type: 'application/ld+json'
+      }
+    ]
   },
 
   computed: {
