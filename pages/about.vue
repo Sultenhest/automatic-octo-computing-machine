@@ -1,6 +1,15 @@
 <template>
-  <div class="about block sm:flex pt-2 md:pt-20">
-    <div class="sm:w-1/2 sm:mr-4">
+  <div class="about flex flex-col sm:flex-row pt-2 md:pt-20">
+    <div class="order-1 sm:w-1/2">
+      <UISection
+        v-for="section in sections.section"
+        :key="section.sys.id"
+        :title="section.fields.title"
+        :content="section.fields.content"
+      />
+    </div>
+
+    <div class="order-0 sm:w-1/2 sm:mr-4">
       <figure class="mb-4 md:mb-0">
         <img src="/veto_me.jpg" alt="Trine Dreisig og Veto" class="mb-3" />
         <figcaption class="text-base text-gray-800 dark:text-gray-300">
@@ -10,15 +19,6 @@
           </a>
         </figcaption>
       </figure>
-    </div>
-
-    <div class="sm:w-1/2">
-      <UISection
-        v-for="section in sections.section"
-        :key="section.sys.id"
-        :title="section.fields.title"
-        :content="section.fields.content"
-      />
     </div>
   </div>
 </template>
@@ -33,9 +33,20 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: 'Mit navn er Trine Dreisig og jeg er bosat i Nordsjælland, nærmere betegnet 3050 Humlebæk med min kæreste, hund og kat.'
+        content: 'Mit navn er Trine Dreisig og jeg er bosat i Nordsjælland, nærmere betegnet Kirke Esbønderup, med min kæreste, hund og kat.'
       }
     ],
+    script: [
+      {
+        json: {
+          '@context': 'http://schema.org',
+          '@type': 'Website',
+          'name': 'Info - Hundefotografi',
+          'description': 'Mit navn er Trine Dreisig og jeg er bosat i Nordsjælland, nærmere betegnet Kirke Esbønderup, med min kæreste, hund og kat.'
+        }, 
+        type: 'application/ld+json'
+      }
+    ]
   },
 
   computed: {
