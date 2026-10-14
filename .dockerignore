@@ -6,3 +6,4 @@ dist
 .git
 .eslintcache
 .DS_Store
+images-src

@@ -1,18 +1,22 @@
-.PHONY: up dev down restart url
+.PHONY: up dev down restart images url
 
-# Build the image if needed and replace the node_modules volume, so dependency
-# changes are always picked up
+# Start the dev server
 up: url
-	docker compose up --build --renew-anon-volumes hundefotografi
+	docker compose up hundefotografi
 
-# Same as up; kept for habit
-dev: up
+# Rebuild the image and replace the node_modules volume; use after dependency changes
+dev: url
+	docker compose up --build --renew-anon-volumes hundefotografi
 
 down:
 	docker compose down
 
 restart:
 	docker compose restart hundefotografi
+
+# Rebuild the resized images in static/ from the originals in images-src/
+images:
+	docker compose exec hundefotografi node scripts/resize-images.js
 
 # Links for other devices on the same network
 url:
