@@ -25,8 +25,8 @@ If `git status` shows uncommitted changes, commit them first as **separate conve
 Use the dev container (start it with `make up` in the background if it isn't running):
 
 - Lint: `docker compose exec -T hundefotografi npx eslint --ext .js,.vue components layouts pages plugins nuxt.config.js`. Only the known `vue/no-v-html` and `no-console` warnings are acceptable.
-- Static build in a separate container (each container has its own `.nuxt`, so this is safe while the dev server runs):
-  `docker compose run --rm --no-deps hundefotografi sh -c 'npx nuxt generate 2>&1 | grep -E "Generated route|static image|ERROR|FATAL"'`. Every page in `static/sitemap.xml` must show as a generated route, with no `ERROR` or `FATAL`. Delete `dist/` afterwards.
+- Static production build in a separate container (each container has its own `.nuxt`, so this is safe while the dev server runs). `NODE_ENV=production` matters: docker-compose sets `development`, which produces an unminified build that's useless for size or performance checks:
+  `docker compose run --rm --no-deps -e NODE_ENV=production hundefotografi sh -c 'npx nuxt generate 2>&1 | grep -E "Generated route|static image|ERROR|FATAL"'`. Every page in `static/sitemap.xml` must show as a generated route, with no `ERROR` or `FATAL`. Delete `dist/` afterwards.
 
 ## 3. Choose the version
 
