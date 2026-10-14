@@ -79,6 +79,38 @@ export default {
       ],
       show: false
     }
+  },
+
+  watch: {
+    // Close the menu after navigating, including with the browser's back button
+    $route() {
+      this.show = false
+    }
+  },
+
+  mounted() {
+    document.addEventListener('click', this.closeOnOutsideClick)
+    document.addEventListener('keydown', this.closeOnEscape)
+  },
+
+  beforeDestroy() {
+    document.removeEventListener('click', this.closeOnOutsideClick)
+    document.removeEventListener('keydown', this.closeOnEscape)
+  },
+
+  methods: {
+    // Clicks inside the header (the menu button, the menu itself) are handled there
+    closeOnOutsideClick(event) {
+      if (this.show && !this.$el.contains(event.target)) {
+        this.show = false
+      }
+    },
+
+    closeOnEscape(event) {
+      if (this.show && event.key === 'Escape') {
+        this.show = false
+      }
+    }
   }
 }
 </script>
