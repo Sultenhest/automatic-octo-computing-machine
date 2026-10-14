@@ -1,0 +1,21 @@
+
+services:
+  hundefotografi:
+    platform: linux/amd64
+
+    build:
+      context: .
+
+    container_name: hundefotografi
+
+    ports:
+      - "8080:8080"
+
+    volumes:
+      - .:/src
+      - /src/node_modules
+
+    environment:
+      NODE_ENV: development
+      HOST: 0.0.0.0
+      PORT: 8080
