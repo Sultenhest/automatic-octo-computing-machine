@@ -60,4 +60,10 @@ Requires a `.env` (gitignored) with `NUXT_ENV_CONTENTFUL_SPACE` and `NUXT_ENV_CO
 - Every page sets its own `head`: a Danish `title` in the form `"<Page> - Hundefotografi"`, a `description` meta with `hid: 'description'`, and a JSON-LD `script`. Keep all three in sync when changing page copy.
 - Colours come from two Tailwind tokens (the "museumsgrå" palette in `tailwind.config.js`): `paper` (#EFEFED, with `paper-deep` for raised surfaces) and `ink` (#000, with `ink-soft`). Light mode is `bg-paper text-ink`, dark mode the reverse: `dark:bg-ink dark:text-paper`. Use one ink colour for all text and get hierarchy from size and weight, not grey shades. Don't use Tailwind's `gray-*` palette. Hover states are a rounded background in the deeper shade: `rounded hover:bg-paper-deep dark:hover:bg-ink-soft`. Inside the open menu, which already sits on `paper-deep`, it's `hover:bg-paper dark:hover:bg-ink`. Support dark mode on all new UI.
 - When adding or removing a page, also update the `links` array in `components/UI/Navigation.vue` and `static/sitemap.xml`. The sitemap is maintained by hand.
+- Use `<nuxt-img>` only with the Contentful provider. For files in `static/`, use a plain `<img>`, pre-resized if large (e.g. `trfhi-640.webp`/`trfhi-1024.webp`): after client-side navigation, nuxt-img requests `/_ipx/...`, which doesn't exist on Netlify's static hosting.
 - Static files in `static/` are served from `/` (for example `/logo_blue.png` and `/trfhi.jpg` on the about page).
+
+## Claude tooling
+
+- `/release [patch|minor|major|x.y.z]` (`.claude/skills/release/`): verifies the build, bumps `package.json` and `package-lock.json`, commits, tags, pushes `develop`, creates the GitHub release and opens or updates the PR to `main`, then reviews it. It never merges to `main`.
+- `seo-auditor` agent (`.claude/agents/`): a read-only SEO audit with Lighthouse in Docker and checks of the rendered HTML, for local, live, or both.
