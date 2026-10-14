@@ -1,0 +1,8 @@
+# Installed and built inside the container; .env arrives through the bind mount at runtime
+node_modules
+.nuxt
+dist
+.env
+.git
+.eslintcache
+.DS_Store

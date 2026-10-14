@@ -2,8 +2,9 @@
   <div class="about flex flex-col sm:flex-row pt-2 md:pt-20">
     <div class="order-1 sm:w-1/2">
       <UISection
-        v-for="section in sections.section"
+        v-for="(section, index) in sections"
         :key="section.sys.id"
+        :level="index === 0 ? 1 : 2"
         :title="section.fields.title"
         :content="section.fields.content"
       />
@@ -18,41 +19,36 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { sectionsPage } from '~/plugins/contentful.js'
 
 export default {
+  mixins: [sectionsPage('2f0zj0mrh9p5aTkGUtpJje')],
+
   head: {
     title: 'Info - Hundefotografi',
     meta: [
       {
         hid: 'description',
         name: 'description',
-        content: 'Mit navn er Trine Dreisig og jeg er bosat i Nordsjælland, nærmere betegnet Kirke Esbønderup, med min kæreste, hund og kat.'
+        content: 'Jeg er Trine Jul Dreisig, autodidakt hundefotograf fra Esbønderup Skovhuse i Nordsjælland. Rolige og trygge fotograferinger udendørs – på hundens præmisser.'
+      },
+      {
+        hid: 'og:title',
+        property: 'og:title',
+        content: 'Info - Hundefotografi'
       }
     ],
     script: [
       {
         json: {
-          '@context': 'http://schema.org',
-          '@type': 'Website',
+          '@context': 'https://schema.org',
+          '@type': 'WebSite',
           'name': 'Info - Hundefotografi',
-          'description': 'Mit navn er Trine Dreisig og jeg er bosat i Nordsjælland, nærmere betegnet Kirke Esbønderup, med min kæreste, hund og kat.'
+          'description': 'Jeg er Trine Jul Dreisig, autodidakt hundefotograf fra Esbønderup Skovhuse i Nordsjælland. Rolige og trygge fotograferinger udendørs – på hundens præmisser.'
         }, 
         type: 'application/ld+json'
       }
     ]
-  },
-
-  computed: {
-    ...mapGetters({
-      sections: 'sections/sections'
-    })
-  },
-
-  created() {
-    this.$store.dispatch('sections/getSections', {
-      entryId: '2f0zj0mrh9p5aTkGUtpJje'
-    });
   }
 }
 </script>

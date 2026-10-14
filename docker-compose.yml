@@ -1,8 +1,6 @@
 
 services:
   hundefotografi:
-    platform: linux/amd64
-
     build:
       context: .
 
@@ -14,6 +12,8 @@ services:
     volumes:
       - .:/src
       - /src/node_modules
+      # Keep the Nuxt build per container, so a second container can't overwrite it
+      - /src/.nuxt
 
     environment:
       NODE_ENV: development

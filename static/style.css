@@ -20,3 +20,9 @@ ul {
   list-style: initial;
   padding: revert;
 }
+
+/* Long Danish words in large headings break with a hyphen instead of overflowing */
+.hyphens-auto {
+  hyphens: auto;
+  overflow-wrap: break-word;
+}

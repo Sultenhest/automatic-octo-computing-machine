@@ -1,12 +1,17 @@
 <template>
 	<section class="mb-4">
-    <h1 v-if="title" class="text-xl font-bold text-gray-800 dark:text-gray-300">
+    <component
+      :is="level === 1 ? 'h1' : 'h2'"
+      v-if="title"
+      class="hyphens-auto font-black uppercase text-ink dark:text-paper"
+      :class="level === 1 ? 'mb-4 text-3xl sm:text-2xl md:text-3xl lg:text-4xl leading-none tracking-tight' : 'mt-10 mb-3 text-lg leading-tight'"
+    >
       {{ title }}
-    </h1>
+    </component>
     
-    <p v-if="content" class="text-base text-gray-600 dark:text-gray-400">
+    <div v-if="content" class="text-base text-ink dark:text-paper">
       <span v-html="content"></span>
-    </p>
+    </div>
   </section>
 </template>
 
@@ -20,6 +25,12 @@ export default {
     content: {
       type: String,
       default: '',
+    },
+    // 1 renders the page's h1; use 2 for every section after the first
+    level: {
+      type: Number,
+      default: 1,
+      validator: (value) => [1, 2].includes(value),
     },
 	}
 }
