@@ -10,18 +10,15 @@
       />
     </div>
 
-    <div class="hidden order-0 sm:block sm:w-1/2 sm:mr-4">
-    	<GridItem v-for="image in randomImages" :key="image.sys.id" :item="image"/>
-    </div>
+    <GridSideImages :images="sideImages" />
 	</div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import { sectionsPage } from '~/plugins/contentful.js'
 
 export default {
-  mixins: [sectionsPage('TV8S55okZJ8WzThQ7Woba')],
+  mixins: [sectionsPage('TV8S55okZJ8WzThQ7Woba', { sideImages: 3 })],
 
   head: {
     title: 'Handelsbetingelser - Hundefotografi',
@@ -48,18 +45,6 @@ export default {
         type: 'application/ld+json'
       }
     ]
-  },
-
-  computed: {
-    ...mapGetters({
-      images: 'images'
-    }),
-
-    randomImages() {
-    	if (!this.images) return []
-    	const rand = [...this.images];
-    	return rand.sort(() => .5 - Math.random()).slice(0, 3);
-    }
   }
 }
 </script>
