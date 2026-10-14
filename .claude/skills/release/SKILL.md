@@ -1,8 +1,7 @@
 ---
 name: release
-description: Cut a release of hundefotografi.dk. Bumps the version in package.json and package-lock.json, commits with conventional commits, tags, pushes develop, creates the GitHub release and opens (or updates) the PR from develop to main. Use when the user asks to release, bump the version, tag, or ship to main.
+description: Cut a release of hundefotografi.dk. Bumps the version in package.json and package-lock.json, commits with conventional commits, tags, pushes develop, creates the GitHub release and opens (or updates) the PR from develop to main. Use when the user asks to release, bump the version, tag, or ship to main; never start a release on your own initiative.
 argument-hint: "[patch|minor|major|x.y.z]"
-disable-model-invocation: true
 ---
 
 # Release hundefotografi.dk
