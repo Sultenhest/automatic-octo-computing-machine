@@ -35,7 +35,7 @@ Requires a `.env` (gitignored) with `NUXT_ENV_CONTENTFUL_SPACE` and `NUXT_ENV_CO
 ## Architecture
 
 - `layouts/default.vue`: fixed `UINavigation`, a centered `<main>`, and `UIFooter`. `layouts/error.vue` is the 404 / error page.
-- `pages/`: `index` (masonry gallery), `about` (Info), `pricing` (Priser), `booking`, `terms` (Handelsbetingelser). `-shop.vue` is disabled: the leading `-` makes Nuxt ignore it, and its nav link is commented out.
+- `pages/`: `index` (masonry gallery), `about` (Om fotografen), `pricing` (Priser), `booking`, `terms` (Handelsbetingelser). `-shop.vue` is disabled: the leading `-` makes Nuxt ignore it, and its nav link is commented out.
 - Components are auto-imported with the folder as prefix: `components/UI/Section.vue` becomes `<UISection>`, `components/Grid/Item.vue` becomes `<GridItem>`, `components/Icons/Calendar.vue` becomes `<IconsCalendar>`.
 
 ### Data flow (Contentful → Vuex)

@@ -57,7 +57,7 @@ export default {
           href: '/'
         },
         {
-          name: 'Info',
+          name: 'Om fotografen',
           href: '/about/'
         },
         {

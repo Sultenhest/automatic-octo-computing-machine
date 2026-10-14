@@ -25,7 +25,7 @@ export default {
   mixins: [sectionsPage('2f0zj0mrh9p5aTkGUtpJje')],
 
   head: {
-    title: 'Info - Hundefotografi',
+    title: 'Om fotografen - Hundefotografi',
     meta: [
       {
         hid: 'description',
@@ -35,7 +35,7 @@ export default {
       {
         hid: 'og:title',
         property: 'og:title',
-        content: 'Info - Hundefotografi'
+        content: 'Om fotografen - Hundefotografi'
       }
     ],
     script: [
@@ -43,7 +43,7 @@ export default {
         json: {
           '@context': 'https://schema.org',
           '@type': 'WebSite',
-          'name': 'Info - Hundefotografi',
+          'name': 'Om fotografen - Hundefotografi',
           'description': 'Jeg er Trine Jul Dreisig, autodidakt hundefotograf fra Esbønderup Skovhuse i Nordsjælland. Rolige og trygge fotograferinger udendørs – på hundens præmisser.'
         }, 
         type: 'application/ld+json'
