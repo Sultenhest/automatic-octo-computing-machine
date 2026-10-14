@@ -10,7 +10,7 @@
           </span> -->
         </NuxtLink>
 
-        <button type="button" aria-label="Menu" aria-controls="main-menu" :aria-expanded="show ? 'true' : 'false'" class="block top-0 right-0 p-4 rounded" @click="show = !show">
+        <button ref="toggle" type="button" aria-label="Menu" aria-controls="main-menu" :aria-expanded="show ? 'true' : 'false'" class="block top-0 right-0 p-4 rounded" @click="show = !show">
           <IconsClose v-if="show" class="h-6 w-6 text-ink dark:text-paper" />
           <IconsMenu v-else class="h-6 w-6 text-ink dark:text-paper"  />
         </button>
@@ -33,7 +33,7 @@
           leave-class="opacity-100"
           leave-to-class="opacity-0"
         >
-          <div v-show="show" id="main-menu" class="absolute top-14 right-0 w-full sm:max-w-sm mt-4 p-4 space-y-2 rounded bg-paper-deep dark:bg-ink-soft text-ink dark:text-paper shadow-md" @click="show = !show">
+          <div v-show="show" id="main-menu" ref="menu" class="absolute top-14 right-0 w-full sm:max-w-sm mt-4 p-4 space-y-2 rounded bg-paper-deep dark:bg-ink-soft text-ink dark:text-paper shadow-md" @click="show = !show">
             <NuxtLink
               v-for="link in links" :key="link.name"
               :to="link.href"
@@ -88,27 +88,32 @@ export default {
     }
   },
 
+  // pointerdown rather than click: iOS Safari doesn't fire click for taps on
+  // plain text or images, so a click listener wouldn't see taps outside the menu
   mounted() {
-    document.addEventListener('click', this.closeOnOutsideClick)
+    document.addEventListener('pointerdown', this.closeOnOutsideClick)
     document.addEventListener('keydown', this.closeOnEscape)
   },
 
   beforeDestroy() {
-    document.removeEventListener('click', this.closeOnOutsideClick)
+    document.removeEventListener('pointerdown', this.closeOnOutsideClick)
     document.removeEventListener('keydown', this.closeOnEscape)
   },
 
   methods: {
-    // Clicks inside the header (the menu button, the menu itself) are handled there
+    // The menu button and the menu handle their own clicks; anything else closes it
     closeOnOutsideClick(event) {
-      if (this.show && !this.$el.contains(event.target)) {
+      const inside = [this.$refs.toggle, this.$refs.menu].some((el) => el && el.contains(event.target))
+      if (this.show && !inside) {
         this.show = false
       }
     },
 
+    // Return focus to the menu button, so keyboard users aren't left on a hidden link
     closeOnEscape(event) {
       if (this.show && event.key === 'Escape') {
         this.show = false
+        this.$refs.toggle.focus()
       }
     }
   }
