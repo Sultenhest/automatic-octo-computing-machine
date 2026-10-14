@@ -3,7 +3,7 @@
     <div class="max-w-screen-lg mx-auto">
       <header class="relative flex items-center text-base text-ink dark:text-paper">
         <NuxtLink to="/" class="flex items-center mr-auto">
-          <img src="/logo_blue.png" width="310" height="385" alt="Logo" class="h-8 md:h-10 w-auto">
+          <img src="/logo_blue.webp" width="97" height="120" alt="Logo" class="h-8 md:h-10 w-auto">
 
           <!-- <span class="hidden sm:block text-2xl sm:text-3xl md:text-4xl lg:text-5xl uppercase tracking-wide ml-3">
             Hundefotografi
