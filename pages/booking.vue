@@ -1,20 +1,25 @@
 <template>
-  <div class="booking block sm:flex pt-2 md:pt-20">
-    <div class="w-full">
+  <div class="booking flex flex-col sm:flex-row pt-2 md:pt-20">
+    <div class="order-1 sm:w-1/2">
       <UISection
-        v-for="section in sections.section"
+        v-for="(section, index) in sections"
         :key="section.sys.id"
+        :level="index === 0 ? 1 : 2"
         :title="section.fields.title"
         :content="section.fields.content"
       />
     </div>
+
+    <GridSideImages :images="sideImages" />
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { sectionsPage } from '~/plugins/contentful.js'
 
 export default {
+  mixins: [sectionsPage('5M3qBrofDxJh1brqnDrWux', { sideImages: 1 })],
+
   head: {
     title: 'Booking - Hundefotografi',
     meta: [
@@ -22,31 +27,24 @@ export default {
         hid: 'description',
         name: 'description',
         content: 'Book via email: tdreisig@gmail.com'
+      },
+      {
+        hid: 'og:title',
+        property: 'og:title',
+        content: 'Booking - Hundefotografi'
       }
     ],
     script: [
       {
         json: {
-          '@context': 'http://schema.org',
-          '@type': 'Website',
+          '@context': 'https://schema.org',
+          '@type': 'WebSite',
           'name': 'Booking - Hundefotografi',
           'description': 'Book via email: tdreisig@gmail.com'
         }, 
         type: 'application/ld+json'
       }
     ]
-  },
-
-  computed: {
-    ...mapGetters({
-      sections: 'sections/sections'
-    })
-  },
-
-  created() {
-    this.$store.dispatch('sections/getSections', {
-      entryId: '5M3qBrofDxJh1brqnDrWux'
-    });
   }
 }
 </script>

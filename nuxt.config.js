@@ -4,6 +4,9 @@ export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'Hundefotografi',
+    htmlAttrs: {
+      lang: 'da'
+    },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -14,12 +17,16 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ],
     bodyAttrs: {
-      class: 'bg-gray-50 dark:bg-dark'
+      class: 'bg-paper dark:bg-ink text-ink dark:text-paper'
     }
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '@fontsource/inter/latin-400.css',
+    '@fontsource/inter/latin-500.css',
+    '@fontsource/inter/latin-700.css',
+    '@fontsource/inter/latin-900.css',
     '~/static/style.css'
   ],
 
@@ -56,7 +63,15 @@ export default {
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
-      lang: 'en'
+      lang: 'da'
+    },
+    meta: {
+      lang: 'da',
+      ogHost: 'https://hundefotografi.dk',
+      // og:url is set per page in layouts/default.vue
+      ogUrl: false,
+      ogDescription: 'Professionel fotografering af din hund i Nordsjælland.',
+      ogImage: { path: '/veto_me.jpg', width: 1000, height: 1000, type: 'image/jpeg' }
     }
   },
 

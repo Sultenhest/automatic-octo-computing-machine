@@ -2,28 +2,29 @@
   <div class="pricing flex flex-col sm:flex-row pt-2 md:pt-20">
     <div class="order-1 sm:w-1/2">
       <UISection
-        v-for="section in sections.section"
+        v-for="(section, index) in sections"
         :key="section.sys.id"
+        :level="index === 0 ? 1 : 2"
         :title="section.fields.title"
         :content="section.fields.content"
       />
 
-      <NuxtLink to="/booking" class="flex p-3 hover:bg-gray-200 dark:hover:bg-black text-base text-gray-800 dark:text-gray-300 rounded transition duration-300 ease-in-out">
+      <NuxtLink to="/booking/" class="flex items-center p-3 text-sm font-bold uppercase tracking-wider text-ink dark:text-paper rounded hover:bg-paper-deep dark:hover:bg-ink-soft transition duration-300 ease-in-out">
         <IconsCalendar class="h-6 w-6 mr-2" />
         <span>Book her</span>
       </NuxtLink>
     </div>
 
-    <div class="hidden order-0 sm:block sm:w-1/2 sm:mr-4">
-      <GridItem v-for="image in randomImages" :key="image.fields.slug" :item="image"/>
-    </div>
+    <GridSideImages :images="sideImages" />
 	</div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { sectionsPage } from '~/plugins/contentful.js'
 
 export default {
+  mixins: [sectionsPage('3eqnidgZU6k7iOcTL8EVf9', { sideImages: 1 })],
+
   head: {
     title: 'Priser - Hundefotografi',
     meta: [
@@ -31,37 +32,24 @@ export default {
         hid: 'description',
         name: 'description',
         content: 'Alle billeder leveres færdigredigerede og i fuld opløsning til digital download.'
+      },
+      {
+        hid: 'og:title',
+        property: 'og:title',
+        content: 'Priser - Hundefotografi'
       }
     ],
     script: [
       {
         json: {
-          '@context': 'http://schema.org',
-          '@type': 'Website',
+          '@context': 'https://schema.org',
+          '@type': 'WebSite',
           'name': 'Priser - Hundefotografi',
           'description': 'Alle billeder leveres færdigredigerede og i fuld opløsning til digital download.'
         }, 
         type: 'application/ld+json'
       }
     ]
-  },
-
-  computed: {
-    ...mapGetters({
-      sections: 'sections/sections',
-      images: 'images'
-    }),
-
-    randomImages() {
-      const rand = [...this.images];
-      return rand.sort(() => .5 - Math.random()).slice(0, 2);
-    }
-  },
-
-  created() {
-    this.$store.dispatch('sections/getSections', {
-      entryId: '3eqnidgZU6k7iOcTL8EVf9'
-    });
   }
 }
 </script>

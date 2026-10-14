@@ -10,8 +10,8 @@ export default {
     script: [
       {
         json: {
-          '@context': 'http://schema.org',
-          '@type': 'Website',
+          '@context': 'https://schema.org',
+          '@type': 'WebSite',
           'name': 'Hundefotografi',
           'description': 'Professionel fotografering af din hund i Nordsjælland.'
         }, 

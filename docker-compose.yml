@@ -1,0 +1,21 @@
+
+services:
+  hundefotografi:
+    build:
+      context: .
+
+    container_name: hundefotografi
+
+    ports:
+      - "8080:8080"
+
+    volumes:
+      - .:/src
+      - /src/node_modules
+      # Keep the Nuxt build per container, so a second container can't overwrite it
+      - /src/.nuxt
+
+    environment:
+      NODE_ENV: development
+      HOST: 0.0.0.0
+      PORT: 8080

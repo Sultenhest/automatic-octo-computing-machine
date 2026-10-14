@@ -5,6 +5,7 @@
  ** Default: https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
  */
 const colors = require('tailwindcss/colors')
+const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
   darkMode: "class",
@@ -12,11 +13,10 @@ module.exports = {
      minHeight: {
        'half': '50vh'
      },
-     backgroundColor: theme => ({
-      ...theme('colors'),
-      'dark': '#111111',
-    }),
     extend: {
+      fontFamily: {
+        sans: ['Inter', ...defaultTheme.fontFamily.sans],
+      },
       keyframes: {
         fadeinright: {
            'from': {
@@ -24,7 +24,7 @@ module.exports = {
              transform: 'translateX(-15px)'
            },
            'to': {
-             opacit: 1,
+             opacity: 1,
              transform: 'translateX(0)'
            },
          },
@@ -34,7 +34,7 @@ module.exports = {
              transform: 'translateY(15px)'
            },
            'to': {
-             opacit: 1,
+             opacity: 1,
              transform: 'translateY(0)'
            },
          },
@@ -43,8 +43,16 @@ module.exports = {
         fadeinright: 'fadeinright 1s ease-in-out',
         fadeinup: 'fadeinup 1s ease-in-out'
       },
+      // Museumsgrå: paper is the light-mode background and dark-mode text, ink the reverse
       colors: {
-        'dark': '#111111' 
+        paper: {
+          DEFAULT: '#EFEFED',
+          deep: '#E2E2DF',
+        },
+        ink: {
+          DEFAULT: '#000000',
+          soft: '#1C1C1C',
+        },
       }
     }
   },
