@@ -53,6 +53,11 @@ module.exports = {
           DEFAULT: '#000000',
           soft: '#1C1C1C',
         },
+        // Accent, used for the open menu and booking-button hovers (white text on it is 4.5:1)
+        rust: {
+          DEFAULT: '#AE6337',
+          deep: '#924F28',
+        },
       }
     }
   },

@@ -1,6 +1,6 @@
 <template>
   <div class="z-50 fixed w-full top-0 left-0 p-4 bg-paper dark:bg-ink">
-    <div class="max-w-screen-lg mx-auto">
+    <div class="max-w-screen-xl mx-auto">
       <header class="relative flex items-center text-base text-ink dark:text-paper">
         <NuxtLink to="/" class="flex items-center mr-auto">
           <img src="/logo_blue.webp" width="97" height="120" alt="Hundefotografi – forside" class="h-8 md:h-10 w-auto">
@@ -10,7 +10,7 @@
           </span> -->
         </NuxtLink>
 
-        <button ref="toggle" type="button" aria-label="Menu" aria-controls="main-menu" :aria-expanded="show ? 'true' : 'false'" class="block top-0 right-0 p-4 rounded" @click="show = !show">
+        <button ref="toggle" type="button" aria-label="Menu" aria-controls="main-menu" :aria-expanded="show ? 'true' : 'false'" class="block p-4 rounded" @click="show = !show">
           <IconsClose v-if="show" class="h-6 w-6 text-ink dark:text-paper" />
           <IconsMenu v-else class="h-6 w-6 text-ink dark:text-paper"  />
         </button>
@@ -33,11 +33,11 @@
           leave-class="opacity-100"
           leave-to-class="opacity-0"
         >
-          <div v-show="show" id="main-menu" ref="menu" class="absolute top-14 right-0 w-full sm:max-w-sm mt-4 p-4 space-y-2 rounded bg-paper-deep dark:bg-ink-soft text-ink dark:text-paper shadow-md" @click="show = !show">
+          <div v-show="show" id="main-menu" ref="menu" class="absolute top-14 right-0 w-full sm:max-w-sm mt-4 p-4 space-y-2 rounded bg-rust text-white shadow-md" @click="show = !show">
             <NuxtLink
               v-for="link in links" :key="link.name"
               :to="link.href"
-              class="p-3 block w-full text-sm font-bold uppercase tracking-wider rounded hover:bg-paper dark:hover:bg-ink transition duration-300 ease-in-out">
+              class="p-3 block w-full text-sm font-bold uppercase tracking-wider rounded hover:bg-rust-deep transition duration-300 ease-in-out">
               {{ link.name }}
             </NuxtLink>
           </div>
