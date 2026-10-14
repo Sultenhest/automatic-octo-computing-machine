@@ -5,3 +5,7 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Cross-Origin-Opener-Policy: same-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+# Nuxt's build files have content hashes in their names, so they can be cached for a year
+/_nuxt/*
+  Cache-Control: public, max-age=31536000, immutable

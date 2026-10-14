@@ -9,7 +9,7 @@
         :content="section.fields.content"
       />
 
-      <NuxtLink to="/booking/" class="flex items-center p-3 text-sm font-bold uppercase tracking-wider text-ink dark:text-paper rounded hover:bg-paper-deep dark:hover:bg-ink-soft transition duration-300 ease-in-out">
+      <NuxtLink to="/booking/" class="flex items-center p-3 text-sm font-bold uppercase tracking-wider text-ink dark:text-paper rounded hover:bg-rust hover:text-white dark:hover:text-white transition duration-300 ease-in-out">
         <IconsCalendar class="h-6 w-6 mr-2" />
         <span>Book her</span>
       </NuxtLink>

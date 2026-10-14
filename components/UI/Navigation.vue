@@ -1,16 +1,16 @@
 <template>
   <div class="z-50 fixed w-full top-0 left-0 p-4 bg-paper dark:bg-ink">
-    <div class="max-w-screen-lg mx-auto">
+    <div class="max-w-screen-xl mx-auto">
       <header class="relative flex items-center text-base text-ink dark:text-paper">
         <NuxtLink to="/" class="flex items-center mr-auto">
-          <img src="/logo_blue.webp" width="97" height="120" alt="Logo" class="h-8 md:h-10 w-auto">
+          <img src="/logo_blue.webp" width="97" height="120" alt="Hundefotografi – forside" class="h-8 md:h-10 w-auto">
 
           <!-- <span class="hidden sm:block text-2xl sm:text-3xl md:text-4xl lg:text-5xl uppercase tracking-wide ml-3">
             Hundefotografi
           </span> -->
         </NuxtLink>
 
-        <button type="button" aria-label="Menu" :aria-expanded="show ? 'true' : 'false'" class="block top-0 right-0 p-4 rounded" @click="show = !show">
+        <button ref="toggle" type="button" aria-label="Menu" aria-controls="main-menu" :aria-expanded="show ? 'true' : 'false'" class="block p-4 rounded" @click="show = !show">
           <IconsClose v-if="show" class="h-6 w-6 text-ink dark:text-paper" />
           <IconsMenu v-else class="h-6 w-6 text-ink dark:text-paper"  />
         </button>
@@ -33,11 +33,11 @@
           leave-class="opacity-100"
           leave-to-class="opacity-0"
         >
-          <div v-show="show" class="absolute top-14 right-0 w-full sm:max-w-sm mt-4 p-4 space-y-2 rounded bg-paper-deep dark:bg-ink-soft text-ink dark:text-paper shadow-md" @click="show = !show">
+          <div v-show="show" id="main-menu" ref="menu" class="absolute top-14 right-0 w-full sm:max-w-sm mt-4 p-4 space-y-2 rounded bg-rust text-white shadow-md" @click="show = !show">
             <NuxtLink
               v-for="link in links" :key="link.name"
               :to="link.href"
-              class="p-3 block w-full text-sm font-bold uppercase tracking-wider rounded hover:bg-paper dark:hover:bg-ink transition duration-300 ease-in-out">
+              class="p-3 block w-full text-sm font-bold uppercase tracking-wider rounded hover:bg-rust-deep transition duration-300 ease-in-out">
               {{ link.name }}
             </NuxtLink>
           </div>
@@ -78,6 +78,43 @@ export default {
         }
       ],
       show: false
+    }
+  },
+
+  watch: {
+    // Close the menu after navigating, including with the browser's back button
+    $route() {
+      this.show = false
+    }
+  },
+
+  // pointerdown rather than click: iOS Safari doesn't fire click for taps on
+  // plain text or images, so a click listener wouldn't see taps outside the menu
+  mounted() {
+    document.addEventListener('pointerdown', this.closeOnOutsideClick)
+    document.addEventListener('keydown', this.closeOnEscape)
+  },
+
+  beforeDestroy() {
+    document.removeEventListener('pointerdown', this.closeOnOutsideClick)
+    document.removeEventListener('keydown', this.closeOnEscape)
+  },
+
+  methods: {
+    // The menu button and the menu handle their own clicks; anything else closes it
+    closeOnOutsideClick(event) {
+      const inside = [this.$refs.toggle, this.$refs.menu].some((el) => el && el.contains(event.target))
+      if (this.show && !inside) {
+        this.show = false
+      }
+    },
+
+    // Return focus to the menu button, so keyboard users aren't left on a hidden link
+    closeOnEscape(event) {
+      if (this.show && event.key === 'Escape') {
+        this.show = false
+        this.$refs.toggle.focus()
+      }
     }
   }
 }
