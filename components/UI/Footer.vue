@@ -1,7 +1,7 @@
 <template>
 	<footer class="max-w-screen-lg mx-auto text-base text-ink dark:text-paper mt-8">
-		<nav class="flex justify-center">
-			<div class="flex justify-center space-x-2">
+		<div class="flex justify-center">
+			<div role="group" aria-label="Farvetema" class="flex justify-center space-x-2">
 				<button
 					type="button"
 					aria-label="Følg systemets tema"
@@ -38,7 +38,7 @@
 					</svg>
 				</button>
 			</div>
-		</nav>
+		</div>
 
 		<p class="text-center text-sm text-ink dark:text-paper mt-4">
 			© {{ getYear }} Hundefotografi

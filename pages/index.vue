@@ -1,5 +1,6 @@
 <template>
   <div class="home pt-2 md:pt-20">
+    <h1 class="sr-only">Hundefotografi i Nordsjælland</h1>
     <GridMasonry />
   </div>
 </template>
