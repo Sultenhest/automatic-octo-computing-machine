@@ -12,7 +12,7 @@
 
     <div class="order-0 sm:w-1/2 sm:mr-4">
       <figure class="mb-4 md:mb-0">
-        <img src="/trfhi.jpg" alt="Trine Dreisig og Veto" class="mb-3" />
+        <nuxt-img src="/trfhi.jpg" format="webp" sizes="sm:100vw md:512px" alt="Trine Dreisig og Veto" class="w-full mb-3" />
       </figure>
     </div>
   </div>
