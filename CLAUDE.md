@@ -17,7 +17,7 @@ Portfolio site for Trine Dreisig's dog photography business, live at https://hun
 npm run dev        # dev server (localhost:3000)
 npm run generate   # static build into dist/ (what production uses)
 npm run lint       # eslint on .js/.vue
-make dev           # build and run in Docker on localhost:8080
+make up            # build if needed and run in Docker on localhost:8080 (`make dev` is an alias)
 make url           # print links for other devices on the same network (<host>.local:8080 and LAN IP)
 ```
 
@@ -42,7 +42,7 @@ Requires a `.env` (gitignored) with `NUXT_ENV_CONTENTFUL_SPACE` and `NUXT_ENV_CO
 
 - `plugins/contentful.js` exports a shared Contentful client.
 - `plugins/frontpage.js` runs on both server and client on every load and dispatches `getFrontpage`, which fetches the gallery entry `29HZzUSFfN81hc2NjQxCw9` into root store `images`. Every page reuses these images (masonry on the home page, random side images on content pages).
-- Content pages use the `sectionsPage(entryId)` mixin from `plugins/contentful.js` with a hard-coded Contentful entry ID. Its `asyncData` fetches the entry's `section[]` list into the page's `sections` data, so the text is in the generated HTML. On a direct load, `mounted()` fetches again so Contentful edits show without a redeploy. On client-side navigation only `asyncData` runs. Each section (`fields.title`, `fields.content`) renders through `<UISection>`. Entry IDs:
+- Content pages use the `sectionsPage(entryId)` mixin from `plugins/contentful.js` with a hard-coded Contentful entry ID. Its `asyncData` fetches the entry's `section[]` list into the page's `sections` data, so the text is in the generated HTML. On a direct load, `mounted()` fetches again so Contentful edits show without a redeploy. On client-side navigation only `asyncData` runs. Each section (`fields.title`, `fields.content`) renders through `<UISection>`. Entry IDs: If the browser refetch fails, `getSections` returns `null` and the server-rendered text is kept. Pass `{ sideImages: n }` to also pick `n` random gallery images in `asyncData` (so the server's pick survives hydration) and render them with `<GridSideImages :images="sideImages" />`.
   - about: `2f0zj0mrh9p5aTkGUtpJje`
   - pricing: `3eqnidgZU6k7iOcTL8EVf9`
   - booking: `5M3qBrofDxJh1brqnDrWux`
