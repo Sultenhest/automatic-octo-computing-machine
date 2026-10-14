@@ -9,3 +9,18 @@
     <UIFooter />
   </div>
 </template>
+
+<script>
+export default {
+  head() {
+    // Per-page og:url, with the trailing slash Netlify redirects to
+    const path = this.$route.path.endsWith('/') ? this.$route.path : `${this.$route.path}/`
+
+    return {
+      meta: [
+        { hid: 'og:url', property: 'og:url', content: `https://hundefotografi.dk${path}` }
+      ]
+    }
+  }
+}
+</script>

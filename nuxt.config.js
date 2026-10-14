@@ -68,6 +68,8 @@ export default {
     meta: {
       lang: 'da',
       ogHost: 'https://hundefotografi.dk',
+      // og:url is set per page in layouts/default.vue
+      ogUrl: false,
       ogDescription: 'Professionel fotografering af din hund i Nordsjælland.',
       ogImage: { path: '/veto_me.jpg', width: 1000, height: 1000, type: 'image/jpeg' }
     }
