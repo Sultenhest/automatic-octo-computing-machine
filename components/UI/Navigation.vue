@@ -10,7 +10,7 @@
           </span> -->
         </NuxtLink>
 
-        <button class="block top-0 right-0 p-4 rounded" @click="show = !show">
+        <button type="button" aria-label="Menu" :aria-expanded="show ? 'true' : 'false'" class="block top-0 right-0 p-4 rounded" @click="show = !show">
           <IconsClose v-if="show" class="h-6 w-6 text-ink dark:text-paper" />
           <IconsMenu v-else class="h-6 w-6 text-ink dark:text-paper"  />
         </button>
