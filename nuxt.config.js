@@ -78,6 +78,9 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 
+  // Also ship an ES2017+ bundle; modern browsers skip the legacy polyfills
+  modern: 'client',
+
   colorMode: {
     classSuffix: ''
   },
