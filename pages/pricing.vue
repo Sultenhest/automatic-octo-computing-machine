@@ -54,7 +54,7 @@ export default {
 
     randomImages() {
       const rand = [...this.images];
-      return rand.sort(() => .5 - Math.random()).slice(0, 2);
+      return rand.sort(() => .5 - Math.random()).slice(0, 1);
     }
   },
 
