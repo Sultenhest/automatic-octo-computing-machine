@@ -8,7 +8,7 @@
       :key="image.sys.id"
       :item="image"
       :eager="index === 0"
-      sizes="(max-width: 768px) calc(100vw - 32px), (max-width: 1056px) calc(50vw - 24px), 504px"
+      sizes="(max-width: 768px) calc(100vw - 32px), (max-width: 1312px) calc(50vw - 24px), 632px"
     />
   </div>
 </template>

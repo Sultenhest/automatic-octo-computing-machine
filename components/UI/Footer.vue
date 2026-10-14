@@ -1,5 +1,5 @@
 <template>
-	<footer class="max-w-screen-lg mx-auto text-base text-ink dark:text-paper mt-8">
+	<footer class="max-w-screen-xl mx-auto text-base text-ink dark:text-paper mt-8">
 		<div class="flex justify-center">
 			<div role="group" aria-label="Farvetema" class="flex justify-center space-x-2">
 				<button

@@ -21,7 +21,7 @@
 </template>
 
 <script>
-// Matched to the layout: ~380px phones at 1.75x → 720, 504px desktop columns at 1x/2x → 560/1024
+// Matched to the layout: ~380px phones at 1.75x → 720, up to 632px desktop columns at 1x/2x → 720/1280
 const WIDTHS = [400, 560, 720, 1024, 1280];
 
 export default {

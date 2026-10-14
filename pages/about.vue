@@ -16,7 +16,7 @@
         <img
           src="/trfhi-640.webp"
           srcset="/trfhi-640.webp 640w, /trfhi-1024.webp 1024w"
-          sizes="(max-width: 640px) 100vw, 512px"
+          sizes="(max-width: 640px) 100vw, (max-width: 1312px) calc(50vw - 16px), 640px"
           width="1024"
           height="1280"
           alt="Trine Dreisig og Veto"
