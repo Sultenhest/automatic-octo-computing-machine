@@ -12,7 +12,16 @@
 
     <div class="order-0 sm:w-1/2 sm:mr-4">
       <figure class="mb-4 md:mb-0">
-        <nuxt-img src="/trfhi.jpg" format="webp" sizes="sm:100vw md:512px" alt="Trine Dreisig og Veto" class="w-full mb-3" />
+        <!-- Pre-resized files instead of nuxt-img: on client-side navigation nuxt-img requests /_ipx/, which doesn't exist on Netlify -->
+        <img
+          src="/trfhi-640.webp"
+          srcset="/trfhi-640.webp 640w, /trfhi-1024.webp 1024w"
+          sizes="(max-width: 640px) 100vw, 512px"
+          width="1024"
+          height="1280"
+          alt="Trine Dreisig og Veto"
+          class="w-full mb-3"
+        />
       </figure>
     </div>
   </div>
