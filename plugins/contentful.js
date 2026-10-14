@@ -18,8 +18,15 @@ export async function getSections(entryId) {
   }
 }
 
+// Fisher-Yates shuffle, so every image is equally likely (sorting with a random
+// comparator favours the start of the array)
 function pickRandom(items, count) {
-  return [...(items || [])].sort(() => 0.5 - Math.random()).slice(0, count);
+  const pool = [...(items || [])];
+  for (let i = pool.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [pool[i], pool[j]] = [pool[j], pool[i]];
+  }
+  return pool.slice(0, count);
 }
 
 // Page mixin: renders Contentful sections into the generated HTML, then refetches
