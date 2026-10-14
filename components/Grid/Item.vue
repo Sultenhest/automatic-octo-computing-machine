@@ -1,18 +1,20 @@
 <template>
-	<figure class="mb-4">
+	<figure class="mb-4 break-inside-avoid">
     <!-- Plain img on Contentful's image API: explicit width/height reserve the space
          (no layout shift), srcset/sizes fetch only what the layout needs, and only
          eager images compete for bandwidth on first load -->
+    <!-- loading must come before src/srcset: when Vue creates the img in the
+         browser, it sets attributes in order, and src starts the download -->
     <img
-      :src="imageUrl(640)"
-      :srcset="srcset"
-      :sizes="sizes"
-      :width="dimensions.width"
-      :height="dimensions.height"
-      :alt="altText"
       :loading="eager ? 'eager' : 'lazy'"
       :fetchpriority="eager ? 'high' : 'auto'"
       decoding="async"
+      :width="dimensions.width"
+      :height="dimensions.height"
+      :sizes="sizes"
+      :srcset="srcset"
+      :src="imageUrl(640)"
+      :alt="altText"
       class="w-full bg-paper-deep dark:bg-ink-soft"
     />
 	</figure>
@@ -62,7 +64,10 @@ export default {
 
   methods: {
     imageUrl(width) {
-      return `https:${this.item.fields.file.url}?w=${width}&fm=webp&q=75`;
+      // Contentful usually returns protocol-relative URLs (//images.ctfassets.net/...)
+      const url = this.item.fields.file.url;
+      const base = url.startsWith('//') ? `https:${url}` : url;
+      return `${base}?w=${width}&fm=webp&q=75`;
     },
   },
 }
