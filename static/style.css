@@ -43,3 +43,25 @@ ul {
 .break-inside-avoid {
   break-inside: avoid;
 }
+
+/* Contentful text (UISection, .rich-text). Links: a rust underline fades in on hover and keyboard
+   focus. The underline is always there but transparent, because only its colour can be
+   animated. Timing matches Tailwind's duration-300 ease-in-out used for the buttons and menu.
+   #AE6337 is the rust accent from tailwind.config.js */
+.rich-text a {
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+  transition: text-decoration-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.rich-text a:hover,
+.rich-text a:focus-visible {
+  text-decoration-color: #AE6337;
+}
+
+/* List bullets in the rust accent */
+.rich-text li::marker {
+  color: #AE6337;
+}

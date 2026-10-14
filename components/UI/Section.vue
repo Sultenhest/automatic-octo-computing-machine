@@ -9,7 +9,7 @@
       {{ title }}
     </component>
     
-    <div v-if="content" class="text-base text-ink dark:text-paper">
+    <div v-if="content" class="rich-text text-base text-ink dark:text-paper">
       <span v-html="content"></span>
     </div>
   </section>
