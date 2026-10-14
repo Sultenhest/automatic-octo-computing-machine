@@ -1,21 +1,42 @@
 <template>
 	<figure class="mb-4">
-    <nuxt-img
-      format="webp"
-      provider="contentful"
-      sizes="sm:768px md:1024px"
-      :src="imagePath"
+    <!-- Plain img on Contentful's image API: explicit width/height reserve the space
+         (no layout shift), srcset/sizes fetch only what the layout needs, and only
+         eager images compete for bandwidth on first load -->
+    <img
+      :src="imageUrl(640)"
+      :srcset="srcset"
+      :sizes="sizes"
+      :width="dimensions.width"
+      :height="dimensions.height"
       :alt="altText"
+      :loading="eager ? 'eager' : 'lazy'"
+      :fetchpriority="eager ? 'high' : 'auto'"
+      decoding="async"
+      class="w-full bg-paper-deep dark:bg-ink-soft"
     />
 	</figure>
 </template>
 
 <script>
+// Matched to the layout: ~380px phones at 1.75x → 720, 504px desktop columns at 1x/2x → 560/1024
+const WIDTHS = [400, 560, 720, 1024, 1280];
+
 export default {
   props: {
     item: {
       type: Object,
       required: true
+    },
+    // The rendered width per breakpoint, so the browser picks the right file
+    sizes: {
+      type: String,
+      default: '100vw'
+    },
+    // Load immediately with high priority; use for images visible on first paint
+    eager: {
+      type: Boolean,
+      default: false
     },
   },
 
@@ -29,13 +50,20 @@ export default {
         : 'Hundefoto fra Hundefotografi i Nordsjælland';
     },
 
+    dimensions() {
+      const image = (this.item.fields.file.details || {}).image || {};
+      return { width: image.width, height: image.height };
+    },
 
-    imagePath() {
-      return this.item.fields.file.url.substring(
-        this.item.fields.file.url.indexOf('cyne1yv2gwkj'),
-        this.item.fields.file.url.length
-      );
-    }
+    srcset() {
+      return WIDTHS.map((width) => `${this.imageUrl(width)} ${width}w`).join(', ');
+    },
+  },
+
+  methods: {
+    imageUrl(width) {
+      return `https:${this.item.fields.file.url}?w=${width}&fm=webp&q=75`;
+    },
   },
 }
 </script>
