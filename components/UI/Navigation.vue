@@ -37,7 +37,7 @@
             <NuxtLink
               v-for="link in links" :key="link.name"
               :to="link.href"
-              class="p-3 block w-full text-sm font-bold uppercase tracking-wider rounded hover:bg-rust-deep transition duration-300 ease-in-out">
+              class="p-3 block w-full text-sm font-bold uppercase tracking-wider rounded hover:bg-rust-deep focus:bg-rust-deep focus:outline-none focus:ring-2 focus:ring-white transition duration-300 ease-in-out">
               {{ link.name }}
             </NuxtLink>
           </div>
